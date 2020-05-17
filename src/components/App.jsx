@@ -1,7 +1,9 @@
 import React from "react";
 
 function App(){
-  return  <h1> Hello </h1>
+  return  <Header />
+          <Note />
+          <Footer />
 }
 
 export default App;
