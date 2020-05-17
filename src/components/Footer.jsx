@@ -3,6 +3,8 @@ import React from "react";
 function Footer(){
 var year = new Date().getFullYear()
 
-return <p>Zafer Ozcan {year}</p>
+return <footer>
+      <p>Zafer Ozcan  {year}</p>
+    </footer>
 }
 export default Footer;
