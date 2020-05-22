@@ -1,47 +1,39 @@
 import React, { useState } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import Note from "./Note";
+import CreateArea from "./CreateArea";
 
-function CreateArea(props) {
-  const [note, setNote] = useState({
-    title: "",
-    content: ""
-  });
+function App() {
+  const [notes, setNotes] = useState([]);
 
-  function handleOnChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
-    setNote(preValue => {
-      return {
-        ...preValue,
-        [name]: value
-      };
+  function addNote(note) {
+    setNotes(preValue => {
+      return [...preValue, note];
     });
-  }
-
-  function submitNote(event) {
-    props.onAdd(note);
-    event.preventDefault();
+    console.log(notes);
   }
 
   return (
     <div>
-      <form>
-        <input
-          onChange={handleOnChange}
-          name="title"
-          placeholder="Title"
-          value={note.title}
-        />
-        <textarea
-          onChange={handleOnChange}
-          name="content"
-          placeholder="Take a note..."
-          rows="3"
-          value={note.content}
-        />
-        <button onClick={submitNote}>Add</button>
-      </form>
+      <Header />
+      <CreateArea onAdd={addNote} />
+
+      {notes.map((noteItem, index) => {
+        return (
+          <Note
+            key={index}
+            id={index}
+            title={noteItem.title}
+            content={noteItem.content}
+          />
+        );
+      })}
+
+      <Note key={1} title="Note title" content="Note content" />
+      <Footer />
     </div>
   );
 }
 
-export default CreateArea;
+export default App;
