@@ -7,7 +7,8 @@ function CreateNoteArea(props) {
   });
 
   function handleChange(event) {
-    const { name, value } = event.target;
+    const name = event.target.name;
+    const value = event.target.value;
 
     setNote(prevNote => {
       return {
