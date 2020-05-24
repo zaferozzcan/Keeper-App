@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Apps that has functionality adding notes and showing them on the screen and deleting them off the screen.
 
-![](KeeperApp.png)
+![](KepeerApp.png)
 
 ## Available Scripts
 
